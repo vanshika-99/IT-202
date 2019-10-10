@@ -57,16 +57,14 @@ function validate(){
 	*/
 
 	var select = form.month;
-	var span = document.getElementById("validation.select");
+	var index = select.selectedIndex;
+	var value = select.options[index].value;
+    
+	if(value == "Select One"){
+        	alert("Please select another value");
+        	return false;
+    }	
 
-	if (select.selectedIndex == 0){
-		span.innerText = "please choose a field";
-		succeeded = false;
-}
-
-	else {
-		span.innerText = "";
-}
 	return succeeded;	
 }
 </script>
@@ -89,7 +87,6 @@ input { border: 1px solid black; }
 <span style="display:none;" id="validation.password"></span>
 
 <!-- Add dropdown element (something specific to your project) -->
-<form id="validation.month" onsubmit="return validation.select()">
 <select name="month">
 	<option value="Select One">Select One</option>
 	<option value="January">January</option>
