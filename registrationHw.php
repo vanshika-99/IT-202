@@ -89,6 +89,7 @@ input { border: 1px solid black; }
 <span style="display:none;" id="validation.password"></span>
 
 <!-- Add dropdown element (something specific to your project) -->
+<form id="validation.month" onsubmit="return validation.select()">
 <select name="month">
 	<option value="Select One">Select One</option>
 	<option value="January">January</option>
