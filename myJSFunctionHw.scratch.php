@@ -22,16 +22,18 @@ function myValidation(inputEle, emailValidation){
         if (isEmpty(email)) {
             isValid = false;
             console.log("email cannot be empty");
+        
         }
-	if (isEmpty(emailconf)) {
+        if (isEmpty(emailconf)) {
             isValid = false;
-            console.log("email confirmation cannot be empty");
+            console.log("confirm email cannot be empty");
+        
         }
-
         if (email != emailconf) {
             isValid = false;
             console.log("emails do not match");
-	    alert("emails don't match");
+            alert("emails don't match");
+
         }
         if (!isEmail(inputEle)) {
             isValid = false;
@@ -47,22 +49,15 @@ function myValidation(inputEle, emailValidation){
         if (isEmpty(v)) {
             isValid = false;
             console.log("value is empty (else)");
-	    
+            alert("email field can't be empty");
         }
         if (!isEmail(inputEle)) {
             isValid = false;
-            console.log("input is not valid email (else)");
+            console.log("input is not a valid email (else)");
             alert("input is not a valid email");
-
         }
     }
-}
-
-function isPass(inputpass){
-	if(inputEle.type == ""){
-	}
-
-    return true;
+    }
 }
 
 function myPassValidation(inputPass, passValidation){
@@ -111,43 +106,19 @@ function myPassValidation(inputPass, passValidation){
     }
 }
 
-function isUser(inputUser){
-	if(inputUser.type == ""){
-	}
-
-    return true;
-}
-
 function myUserValidation(inputUser, userValidation){
 	var isValid = true;
     if(userValidation.length > 0) {
         let other = document.forms[0][userValidation]
-        let user = inputuser.value;
+        let user = inputUser.value;
         if (isEmpty(user)) {
             isValid = false;
-            console.log("username field cannot be empty");
-        
-        }
-        
-        if (!isUser(inputUser)) {
-            isValid = false;
-            console.log("invalid username in the field");
-        }
-    }
-    else {
-        let v = inputUser.value;
-        if (isEmpty(v)) {
-            isValid = false;
-            console.log("value is empty (else)");
+            console.log("username cannot be empty");
             alert("username field can't be empty");
-        }
-        if (!isUser(inputUser)) {
-            isValid = false;
-            console.log("input is not a valid username (else)");
-            alert("input is not a valid username");
         }
     }
 }
+
 
 </script>
 </head>
@@ -155,7 +126,7 @@ function myUserValidation(inputUser, userValidation){
 <body>
 <form onsubmit="return false;">
 <input type="text" name="username" placeholder="username"
-        onchange="myUserValidation(this, '');"/>
+	onchange="myUserValidation(this, '');"/>
 <input type="email" name="email" placeholder="email"
 	onchange="myValidation(this, '');"
 />
@@ -169,3 +140,10 @@ function myUserValidation(inputUser, userValidation){
 </form>
 </body>
 </html>
+
+<?php
+if(isset($_POST)){
+        echo "<br><pre>" . var_export($_POST, true) . "</pre><br>";
+}
+?>
+
